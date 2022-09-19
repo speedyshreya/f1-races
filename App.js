@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/Home';
 import YearSelection from './src/screens/YearSelection';
+import Options from './src/screens/Options';
 const Stack = createNativeStackNavigator();
 
 
@@ -27,6 +28,7 @@ export default function App() {
         }}>
         <Stack.Screen name="Home" component = {HomeScreen} options={{ title: 'HomeScreen' }}/>
         <Stack.Screen name = "YearSelection" component = {YearSelection} options={{ title: 'YearSelection' }}/>
+        <Stack.Screen name= "Options" component = {Options} options= {{title: 'Options'}}/>
       </Stack.Navigator>
     </NavigationContainer>
     </>
