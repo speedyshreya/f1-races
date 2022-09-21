@@ -1,12 +1,16 @@
+import { TabRouter } from '@react-navigation/native';
 import React from 'react';
 import { ImageBackground, Button, StyleSheet, Text, View } from "react-native";
 import { ListRenderItem } from 'react-native';
+//{route.params.paramKey}
 
-function Options({navigation}){
+const Options = ({route, navigation}) => {
+   // const {yearValue, test} = route.params;
+   const {year} = route.params;
     return(
         <View style= {styles.container}>
             <Text style = {styles.headline}>
-                Tap on one of the following options to know more!
+                Tap on one of the following options to know more for the year - {yearValue}
             </Text>
             
             <Button style = {styles.button} title="Races"/>

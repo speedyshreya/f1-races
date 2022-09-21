@@ -3,18 +3,14 @@ import { Button, StyleSheet, Text, View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
 
-function combinedButtonActions(){
-  console.log('year Selected is :: ${year}')
-  navigation.navigate('Options')
-}
+const testVar = 20;
+
 function YearSelection({navigation}) {
   const [year, setYear] = useState("2022");
   console.log('year Selected is :: ${year}')
 
   console.log(typeof(year))
   const max = new Date().getFullYear();
-  //console.log("MAx")
-  //console.log(max)
   const min = max - 20;
   let years = [];
 
@@ -26,7 +22,10 @@ function YearSelection({navigation}) {
   const pickerItems = availableYears.map((year) => (
     <Picker.Item label={year} value={year} key={year} />
   ));
-  //console.log(typeof(year))
+
+  const handlePress = () => {
+    navigation.navigate("Options",{year: year})
+}
   return (
     <View style={styles.container}>
       <Text style={styles.headline}>Pick a year</Text>
@@ -39,7 +38,7 @@ function YearSelection({navigation}) {
       </Picker>
       <Button style = {styles.button}
         title="Next"
-        onPress={() => {console.log(`year Selected is:: ${year}`); navigation.navigate("Options")}}>
+        onPress={() => {handlePress}}>
        </Button>
     </View>
   );
